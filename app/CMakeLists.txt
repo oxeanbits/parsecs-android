@@ -1,44 +1,138 @@
 # For more information about using CMake with Android Studio, read the
 # documentation: https://d.android.com/studio/projects/add-native-code.html
 
-# Sets the minimum version of CMake required to build the native library.
-
+########################################################################
+# Project setup
+########################################################################
 cmake_minimum_required(VERSION 3.4.1)
+project(muparserx CXX)
 
-# Creates and names a library, sets it as either STATIC
-# or SHARED, and provides the relative paths to its source code.
-# You can define multiple libraries, and CMake builds them for you.
-# Gradle automatically packages shared libraries with your APK.
+########################################################################
+# Extract version
+########################################################################
+set(MUPARSERX_SOURCE_DIR src/main/cpp/parser)
+file(READ "${MUPARSERX_SOURCE_DIR}/mpDefines.h" mpDefines_h)
+string(REGEX MATCH "\\#define MUP_PARSER_VERSION _T\\(\"([0-9]+\\.[0-9]+\\.[0-9]+) \\(" MUPARSERX_VERSION_MATCHES "${mpDefines_h}")
+if(NOT MUPARSERX_VERSION_MATCHES)
+    message(FATAL_ERROR "Failed to extract version number from mpDefines.h")
+endif(NOT MUPARSERX_VERSION_MATCHES)
+set(MUPARSERX_VERSION ${CMAKE_MATCH_1})
 
-add_library( # Sets the name of the library.
-             math-lib
+########################################################################
+# Compiler specific flags
+########################################################################
+if(CMAKE_COMPILER_IS_GNUCXX OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 
-             # Sets the library as a shared library.
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
+
+    #C++11 is a required language feature for this project
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("-std=c++11" HAS_STD_CXX11)
+    if(HAS_STD_CXX11)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    else(HAS_STD_CXX11)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+    endif()
+
+endif(CMAKE_COMPILER_IS_GNUCXX OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
+
+#enable c++11 extensions for OSX
+if (APPLE)
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -Wc++11-extensions")
+endif(APPLE)
+
+if(MSVC)
+    add_compile_options(/MP) #multi-core build
+endif(MSVC)
+
+########################################################################
+# Build library
+# Defaults to static, set BUILD_SHARED_LIBS=ON for shared
+########################################################################
+file(GLOB MUPARSERX_SOURCES "${MUPARSERX_SOURCE_DIR}/*.cpp")
+include_directories(${MUPARSERX_SOURCE_DIR})
+add_library(muparserx ${MUPARSERX_SOURCES})
+set_target_properties(muparserx PROPERTIES VERSION ${MUPARSERX_VERSION})
+set_property(TARGET muparserx PROPERTY POSITION_INDEPENDENT_CODE TRUE)
+set_target_properties(muparserx PROPERTIES SOVERSION ${MUPARSERX_VERSION})
+set_target_properties(muparserx PROPERTIES VERSION ${MUPARSERX_VERSION})
+set_target_properties(muparserx PROPERTIES LINK_FLAGS "-static" )
+
+#link with lib math when found
+find_library(
+    M_LIBRARY NAMES m
+    PATHS /usr/lib /usr/lib64
+)
+if(M_LIBRARY)
+    target_link_libraries(muparserx ${M_LIBRARY})
+endif(M_LIBRARY)
+
+install(TARGETS muparserx
+    LIBRARY DESTINATION lib${LIB_SUFFIX} # .so file
+    ARCHIVE DESTINATION lib${LIB_SUFFIX} # .lib file
+    RUNTIME DESTINATION bin              # .dll file
+)
+
+########################################################################
+# Build pkg config file
+########################################################################
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/muparserx.in.pc
+    ${CMAKE_CURRENT_BINARY_DIR}/muparserx.pc
+@ONLY)
+
+install(
+    FILES ${CMAKE_CURRENT_BINARY_DIR}/muparserx.pc
+    DESTINATION lib${LIB_SUFFIX}/pkgconfig
+)
+
+########################################################################
+# Install project config
+########################################################################
+configure_file(
+    ${PROJECT_SOURCE_DIR}/cmake/muparserxConfigVersion.in.cmake
+    ${PROJECT_BINARY_DIR}/muparserxConfigVersion.cmake
+@ONLY)
+set(cmake_files
+    ${PROJECT_SOURCE_DIR}/cmake/muparserxConfig.cmake
+    ${PROJECT_BINARY_DIR}/muparserxConfigVersion.cmake)
+if (UNIX)
+    install(FILES ${cmake_files} DESTINATION share/cmake/muparserx)
+elseif (WIN32)
+    install(FILES ${cmake_files} DESTINATION cmake)
+endif ()
+
+########################################################################
+# Install headers
+########################################################################
+file(GLOB MUPARSERX_HEADERS "${MUPARSERX_SOURCE_DIR}/*.h")
+install(
+    FILES ${MUPARSERX_HEADERS}
+    DESTINATION include/muparserx
+)
+
+########################################################################
+# Print summary
+########################################################################
+message(STATUS "Building muparserx version: ${MUPARSERX_VERSION}")
+message(STATUS "Using install prefix: ${CMAKE_INSTALL_PREFIX}")
+
+########################################################################
+# Add parsec library and link
+########################################################################
+
+add_library( parsec-lib
              SHARED
+             src/main/cpp/parsec-lib.cpp )
 
-             # Provides a relative path to your source file(s).
-             src/main/cpp/math-lib.cpp )
-
-# Searches for a specified prebuilt library and stores the path as a
-# variable. Because CMake includes system libraries in the search path by
-# default, you only need to specify the name of the public NDK library
-# you want to add. CMake verifies that the library exists before
-# completing its build.
-
-find_library( # Sets the name of the path variable.
-              log-lib
-
-              # Specifies the name of the NDK library that
-              # you want CMake to locate.
+find_library( log-lib
               log )
 
-# Specifies libraries CMake should link to your target library. You
-# can link multiple libraries, such as libraries you define in this
-# build script, prebuilt third-party libraries, or system libraries.
+find_library( muparserx
+              muparserx )
 
-target_link_libraries( # Specifies the target library.
-                       math-lib
-
-                       # Links the target library to the log library
-                       # included in the NDK.
-                       ${log-lib} )
+target_link_libraries( parsec-lib
+                       ${log-lib}
+                       muparserx)
