@@ -68,6 +68,7 @@ class ParsecTest {
         assert("5", "round(4.62)")
         assert("4.63", "round_decimal(4.625, 2)")
         assert("2.71828", "e")
+        assert("3.14159", "pi")
 
         //test_return_exception
         assert("", "something_wrong")
