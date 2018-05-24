@@ -1,5 +1,9 @@
 package br.com.nvsistemas.parsec
 
+import android.util.Log
+import org.json.JSONException
+import org.json.JSONObject
+
 class Parsec {
     @Throws(UnsupportedOperationException::class)
     fun eval(calc: String): String {
@@ -11,7 +15,29 @@ class Parsec {
         return result
     }
 
+    fun evalValue(calc: String): Value {
+        val result = nativeEvalJson(calc)
+
+        if(result.startsWith("{\"error\"")) {
+            val error = result.substring(11, result.length - 1)
+            throw UnsupportedOperationException(error)
+        }
+
+        try {
+            val json = JSONObject(result)
+
+            return Value(json.optString("val", ""),
+                    json.optString("type", ""))
+        } catch (ex: JSONException) {
+            Log.e(Parsec::class.java.simpleName, "Error on try parser json.", ex)
+        }
+
+        return Value("", "")
+    }
+
     private external fun nativeEval(formula: String): String
+
+    private external fun nativeEvalJson(formula: String): String
 
     companion object {
         init {

@@ -32,12 +32,49 @@ Value Calc(string input) {
     return ans;
 }
 
+jstring CalcJson(JNIEnv *env, string input) {
+    ParserX parser(pckALL_NON_COMPLEX);
+
+    Value ans;
+    parser.DefineVar(_T("ans"), Variable(&ans));
+
+    stringstream_type ss;
+
+    ss << _T("{");
+
+    try
+    {
+        parser.SetExpr(input);
+        ans = parser.Eval();
+
+        ss << _T("\"val\": \"") << ans.AsString() << _T("\"");
+        ss << _T(",\"type\": \"") << ans.GetType() << _T("\"");
+    }
+    catch(ParserError &e)
+    {
+        if (e.GetPos() != -1) {
+            string_type error = e.GetMsg();
+            ss << _T("\"error\": \"") << error << _T("\"");
+        }
+    }
+
+    ss << _T("}");
+
+    return env->NewStringUTF(ss.str().c_str());
+}
+
 extern "C" JNIEXPORT jstring JNICALL
 Java_br_com_nvsistemas_parsec_Parsec_nativeEval(JNIEnv *env, jobject /* this */, jstring input) {
     const char *inputChars = env->GetStringUTFChars(input, NULL);
 
     Value ans = Calc(string(inputChars));
     return env->NewStringUTF(ans.AsString().c_str());
+}
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_br_com_nvsistemas_parsec_Parsec_nativeEvalJson(JNIEnv *env, jobject /* this */, jstring input) {
+    const char *inputChars = env->GetStringUTFChars(input, NULL);
+    return CalcJson(env, string(inputChars));
 }
 
 
