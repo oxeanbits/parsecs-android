@@ -29,6 +29,11 @@ Value Calc(string input) {
             return error;
         }
     }
+    catch(std::runtime_error &)
+    {
+        string_type error = "Error: Runtime error";
+        return error;
+    }
     return ans;
 }
 
@@ -56,6 +61,11 @@ jstring CalcJson(JNIEnv *env, string input) {
             string_type error = e.GetMsg();
             ss << _T("\"error\": \"") << error << _T("\"");
         }
+    }
+    catch(std::runtime_error &)
+    {
+        string_type error = "Error: Runtime error";
+        ss << _T("\"error\": \"") << error << _T("\"");
     }
 
     ss << _T("}");

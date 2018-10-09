@@ -66,6 +66,7 @@ MUP_NAMESPACE_START
   {
     m_vErrMsg.resize(ecCOUNT);
 
+    m_vErrMsg[ecINVALID_DATE_FORMAT]      = _T("Invalid date format.");
     m_vErrMsg[ecUNASSIGNABLE_TOKEN]      = _T("Undefined token \"$IDENT$\" found at position $POS$");
     m_vErrMsg[ecINTERNAL_ERROR]          = _T("Internal error");
     m_vErrMsg[ecINVALID_NAME]            = _T("Invalid function-, variable- or constant name");
