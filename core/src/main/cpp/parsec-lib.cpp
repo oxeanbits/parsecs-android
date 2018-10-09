@@ -62,6 +62,11 @@ jstring CalcJson(JNIEnv *env, string input) {
             ss << _T("\"error\": \"") << error << _T("\"");
         }
     }
+    catch(std::runtime_error &)
+    {
+        string_type error = "Error: Runtime error";
+        ss << _T("\"error\": \"") << error << _T("\"");
+    }
 
     ss << _T("}");
 
