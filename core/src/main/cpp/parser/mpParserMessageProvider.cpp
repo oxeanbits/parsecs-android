@@ -52,7 +52,6 @@ MUP_NAMESPACE_START
   {
     m_vErrMsg.resize(ecCOUNT);
 
-    m_vErrMsg[ecINVALID_DATE_FORMAT]      = _T("Invalid date format.");
     m_vErrMsg[ecUNASSIGNABLE_TOKEN]       = _T("Undefined token \"$IDENT$\" found at position $POS$.");
     m_vErrMsg[ecINTERNAL_ERROR]           = _T("Internal error.");
     m_vErrMsg[ecUNKNOWN_ESCAPE_SEQUENCE]  = _T("Unknown escape sequence.");
@@ -124,7 +123,6 @@ MUP_NAMESPACE_START
   {
     m_vErrMsg.resize(ecCOUNT);
 
-    m_vErrMsg[ecINVALID_DATE_FORMAT]      = _T("Ungültiges Datumsformat.");
     m_vErrMsg[ecUNASSIGNABLE_TOKEN]       = _T("Unbekanntes Token \"$IDENT$\" an Position $POS$ gefunden.");
     m_vErrMsg[ecINTERNAL_ERROR]           = _T("Interner Fehler.");
     m_vErrMsg[ecUNKNOWN_ESCAPE_SEQUENCE]  = _T("Unbekannte Escape-Sequenz.");
