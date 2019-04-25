@@ -120,17 +120,31 @@ MUP_NAMESPACE_START
   }; // class FunSizeOf
 
   //------------------------------------------------------------------------------
-  /** \brief Determine the difference in days between two dates.
+  /** \brief Returns the application of a mask into a integer.
       \ingroup functions
   */
-  class FunDateDiff : public ICallback
+  class FunMask : public ICallback
   {
   public:
-    FunDateDiff();
+    FunMask();
+    virtual ~FunMask();
     virtual void Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc) override;
     virtual const char_type* GetDesc() const override;
     virtual IToken* Clone() const override;
-  }; // class FunDateDiff
+  }; // class FunMask
+
+  //------------------------------------------------------------------------------
+  /** \brief Determine the difference in days between two dates.
+      \ingroup functions
+  */
+  class FunDaysDiff : public ICallback
+  {
+  public:
+    FunDaysDiff();
+    virtual void Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc) override;
+    virtual const char_type* GetDesc() const override;
+    virtual IToken* Clone() const override;
+  }; // class FunDaysDiff
 
   //------------------------------------------------------------------------------
   /** \brief Determine the difference in hours between two dates.
@@ -159,6 +173,19 @@ MUP_NAMESPACE_START
   }; // class FunCurrentDate
 
   //------------------------------------------------------------------------------
+  /** \brief Return sum of a date/date_time with a days quantity
+      \ingroup functions
+  */
+  class FunAddDays : public ICallback
+  {
+  public:
+    FunAddDays();
+    virtual void Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc) override;
+    virtual const char_type* GetDesc() const override;
+    virtual IToken* Clone() const override;
+  }; // class FunAddDays
+
+  //------------------------------------------------------------------------------
   /** \brief Determine the difference in days between two time.
       \ingroup functions
   */
@@ -169,7 +196,7 @@ MUP_NAMESPACE_START
   //  virtual void Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc) override;
   //  virtual const char_type* GetDesc() const override;
   //  virtual IToken* Clone() const override;
-  //}; // class FunDateDiff
+  //}; // class FunDaysDiff
 
 MUP_NAMESPACE_END
 
