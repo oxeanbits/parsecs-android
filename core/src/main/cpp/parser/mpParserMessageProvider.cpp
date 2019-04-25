@@ -90,11 +90,11 @@ MUP_NAMESPACE_START
     m_vErrMsg[ecARRAY_SIZE_MISMATCH]      = _T("Array size mismatch.");
     m_vErrMsg[ecNOT_AN_ARRAY]             = _T("Using the index operator on the scalar variable \"$IDENT$\" is not allowed.");
     m_vErrMsg[ecUNEXPECTED_SQR_BRACKET]   = _T("Unexpected \"[]\".");
-    m_vErrMsg[ecUNEXPECTED_CURLY_BRACKET] = _T("Unexpected \"{}\".");
+	  m_vErrMsg[ecUNEXPECTED_CURLY_BRACKET] = _T("Unexpected \"{}\".");
     m_vErrMsg[ecINDEX_OUT_OF_BOUNDS]      = _T("Index to variable \"$IDENT$\" is out of bounds.");
     m_vErrMsg[ecINDEX_DIMENSION]          = _T("Index operator dimension error.");
     m_vErrMsg[ecMISSING_SQR_BRACKET]      = _T("Missing \"]\".");
-    m_vErrMsg[ecMISSING_CURLY_BRACKET]    = _T("Missing \"}\".");
+	  m_vErrMsg[ecMISSING_CURLY_BRACKET]    = _T("Missing \"}\".");
     m_vErrMsg[ecASSIGNEMENT_TO_VALUE]     = _T("Assignment operator \"$IDENT$\" can't be used in this context.");
     m_vErrMsg[ecEVAL]                     = _T("Can't evaluate function/operator \"$IDENT$\": $HINT$");
     m_vErrMsg[ecINVALID_PARAMETER]        = _T("Parameter $ARG$ of function \"$IDENT$\" is invalid.");
@@ -107,6 +107,9 @@ MUP_NAMESPACE_START
     m_vErrMsg[ecINVALID_DATE_FORMAT]          = _T("Invalid date format on parameter(s). Please use the \"yyyy-mm-dd\" format.");
     m_vErrMsg[ecINVALID_DATETIME_FORMAT]      = _T("Invalid format on the parameter(s). Please use two \"yyyy-mm-dd\" for dates OR two \"yyyy-mm-ddTHH:MM\" for date_times.");
     m_vErrMsg[ecDATE_AND_DATETIME]            = _T("Invalid parameters. You should use exactly two dates \"yyyy-mm-dd\" or two date_times \"yyyy-mm-ddTHH:MM\", but not a mix of them.");
+    m_vErrMsg[ecADD_HOURS]                    = _T("Invalid parameters. You should use a date \"yyyy-mm-dd\" or date_time \"yyyy-mm-ddTHH:MM\" on the first parameter and a number on the second parameter.");
+    m_vErrMsg[ecADD_HOURS_DATE]               = _T("The first parameter could not be converted to a date. Please use the format: \"yyyy-mm-dd\"");
+    m_vErrMsg[ecADD_HOURS_DATETIME]           = _T("The first parameter could not be converted to a date time. Please use the format: \"yyyy-mm-ddTHH:MM\"");
   }
 
 #if defined(_UNICODE)
@@ -164,11 +167,11 @@ MUP_NAMESPACE_START
     m_vErrMsg[ecARRAY_SIZE_MISMATCH]      = _T("Feldgrößen stimmen nicht überein.");
     m_vErrMsg[ecNOT_AN_ARRAY]             = _T("Der Indexoperator kann nicht auf die Skalarvariable \"$IDENT$\" angewandt werden.");
     m_vErrMsg[ecUNEXPECTED_SQR_BRACKET]   = _T("Eckige Klammern sind an dieser Position nicht erlaubt.");
-	m_vErrMsg[ecUNEXPECTED_CURLY_BRACKET] = _T("Geschweifte Klammern sind an dieser Position nicht erlaubt.");
+	  m_vErrMsg[ecUNEXPECTED_CURLY_BRACKET] = _T("Geschweifte Klammern sind an dieser Position nicht erlaubt.");
     m_vErrMsg[ecINDEX_OUT_OF_BOUNDS]      = _T("Indexüberschreitung bei Variablenzugriff auf \"$IDENT$\".");
     m_vErrMsg[ecINDEX_DIMENSION]          = _T("Die Operation kann nicht auf Felder angewandt werden, deren Größe unterschiedlich ist.");
     m_vErrMsg[ecMISSING_SQR_BRACKET]      = _T("Fehlendes \"]\".");
-	m_vErrMsg[ecMISSING_CURLY_BRACKET]    = _T("Fehlendes \"}\".");
+	  m_vErrMsg[ecMISSING_CURLY_BRACKET]    = _T("Fehlendes \"}\".");
     m_vErrMsg[ecASSIGNEMENT_TO_VALUE]     = _T("Der Zuweisungsoperator \"$IDENT$\" kann in diesem Zusammenhang nicht verwendet werden.");
     m_vErrMsg[ecEVAL]                     = _T("Die Funktion bzw. der Operator \"$IDENT$\" kann nicht berechnet werden: $HINT$");
     m_vErrMsg[ecINVALID_PARAMETER]        = _T("Der Parameter $ARG$ der Funktion \"$IDENT$\" is ungültig.");

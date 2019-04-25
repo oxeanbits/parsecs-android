@@ -322,7 +322,7 @@ enum EErrorCodes
     ecARRAY_SIZE_MISMATCH       = 24, ///< Array size mismatch during a vector operation
     ecNOT_AN_ARRAY              = 25, ///< Using the index operator on a scalar variable
     ecUNEXPECTED_SQR_BRACKET    = 26, ///< Invalid use of the index operator
-    ecUNEXPECTED_CURLY_BRACKET  = 27, ///< Invalid use of the index operator
+	  ecUNEXPECTED_CURLY_BRACKET  = 27, ///< Invalid use of the index operator
 
     ecINVALID_NAME              = 28, ///< Invalid function, variable or constant name.
     ecBUILTIN_OVERLOAD          = 29, ///< Trying to overload builtin operator
@@ -343,7 +343,7 @@ enum EErrorCodes
     ecINDEX_OUT_OF_BOUNDS       = 40, ///< Array index is out of bounds
     ecINDEX_DIMENSION           = 41,
     ecMISSING_SQR_BRACKET       = 42, ///< The index operator was not closed properly (i.e. "v[3")
-    ecMISSING_CURLY_BRACKET     = 43,
+	  ecMISSING_CURLY_BRACKET     = 43,
     ecEVAL                      = 44, ///< Error while evaluating function / operator
     ecOVERFLOW                  = 45, ///< Overflow (possibly) occurred
 
@@ -365,6 +365,9 @@ enum EErrorCodes
     ecINVALID_DATE_FORMAT       = 52, ///< Invalid date format
     ecINVALID_DATETIME_FORMAT   = 53, ///< Invalid datetime format
     ecDATE_AND_DATETIME         = 54, ///< Invalid hoursdiff() parameters
+    ecADD_HOURS                 = 55, ///< Invalid add_hours() parameters
+    ecADD_HOURS_DATE            = 56, ///< Invalid date format for add_hours() first parameter
+    ecADD_HOURS_DATETIME        = 57, ///< Invalid date time format for add_hours() first parameter
 
     // The last two are special entries
     ecCOUNT,                          ///< This is no error code, It just stores the total number of error codes
