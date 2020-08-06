@@ -102,6 +102,8 @@ MUP_NAMESPACE_START
       ecINVALID_DATETIME_FORMAT   = 53, ///< Invalid datetime format
       ecDATE_AND_DATETIME         = 54, ///< Invalid hoursdiff() parameters
 
+      ecINVALID_TYPES_MATCH       = 58, ///< Both values of the default(x, y) function should have the same type
+
       // The last two are special entries 
       ecCOUNT,                    ///< This is no error code, It just stores just the total number of error codes
       ecUNDEFINED              = -1, ///< Undefined message, placeholder to detect unassigned error messages
