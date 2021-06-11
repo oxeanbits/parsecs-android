@@ -44,6 +44,37 @@ MUP_NAMESPACE_START
 
   //------------------------------------------------------------------------------
   //
+  // Contains function
+  //
+  //------------------------------------------------------------------------------
+
+  FunStrContains::FunStrContains()
+    :ICallback(cmFUNC, _T("contains"), 2)
+  {}
+
+  //------------------------------------------------------------------------------
+  void FunStrContains::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int)
+  {
+    const string_type & str1 = a_pArg[0]->GetString();
+    const string_type & str2 = a_pArg[1]->GetString();
+
+    *ret = str1.find(str2) != string_type::npos ? true : false;
+  }
+
+  //------------------------------------------------------------------------------
+  const char_type* FunStrContains::GetDesc() const
+  {
+    return _T("contains(str1, str2) - Returns if the str2 string is a sub string of str1.");
+  }
+
+  //------------------------------------------------------------------------------
+  IToken* FunStrContains::Clone() const
+  {
+    return new FunStrContains(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //
   // Concat function
   //
   //------------------------------------------------------------------------------
@@ -70,6 +101,36 @@ MUP_NAMESPACE_START
   IToken* FunStrConcat::Clone() const
   {
     return new FunStrConcat(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //
+  // Link function
+  //
+  //------------------------------------------------------------------------------
+
+  FunStrLink::FunStrLink()
+    :ICallback(cmFUNC, _T("link"), 2)
+  {}
+
+  //------------------------------------------------------------------------------
+  void FunStrLink::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int)
+  {
+    string_type str1 = a_pArg[0]->GetString();
+    string_type str2 = a_pArg[1]->GetString();
+    *ret = (string_type) "<a href=\"" + str2 +"\">" + str1 + "</a>";
+  }
+
+  //------------------------------------------------------------------------------
+  const char_type* FunStrLink::GetDesc() const
+  {
+    return _T("link(s1, s2) - Returns the <a href=\"s2\">s1</a> tag with param values.");
+  }
+
+  //------------------------------------------------------------------------------
+  IToken* FunStrLink::Clone() const
+  {
+    return new FunStrLink(*this);
   }
 
   //------------------------------------------------------------------------------
@@ -140,11 +201,9 @@ MUP_NAMESPACE_START
 
   //------------------------------------------------------------------------------
   //
-
   // default_value() auxiliary overloading functions
   //
   //------------------------------------------------------------------------------
-
   float_type default_value(float_type value, float_type standard) {
     return value == NULL ? standard : value;
   }
@@ -390,7 +449,7 @@ MUP_NAMESPACE_START
 
   //------------------------------------------------------------------------------
   //
-  // String to double conversion => number()
+  // Number cast => number()
   //
   //------------------------------------------------------------------------------
 
@@ -404,29 +463,120 @@ MUP_NAMESPACE_START
     assert(a_iArgc==1);
     _unused(a_iArgc);
 
-    string_type in;
+    string_type string_value;
+    int_type    integer_value;
+    float_type  float_value;
+    bool_type   bool_value;
+
     double out;
 
-    in = a_pArg[0]->GetString();
+    if (a_pArg[0]->GetType() == 's') {
+      string_value = a_pArg[0]->GetString();
 
-#ifndef _UNICODE
-    sscanf(in.c_str(), "%lf", &out);
-#else
-    swscanf(in.c_str(), _T("%lf"), &out);
-#endif
+      #ifndef _UNICODE
+        sscanf(string_value.c_str(), "%lf", &out);
+      #else
+        swscanf(string_value.c_str(), _T("%lf"), &out);
+      #endif
 
-    *ret = (float_type)out;
+      *ret = (float_type) out;
+    }
+
+    if (a_pArg[0]->GetType() == 'i') {
+      integer_value = a_pArg[0]->GetInteger();
+      *ret = (float_type) integer_value;
+    }
+
+    if (a_pArg[0]->GetType() == 'f') {
+      float_value = a_pArg[0]->GetFloat();
+      *ret = (float_type) float_value;
+    }
+
+    if (a_pArg[0]->GetType() == 'b') {
+      bool_value = a_pArg[0]->GetBool();
+      *ret = (float_type) (bool_value ? 1 : 0);
+    }
+
+    return;
   }
 
   //------------------------------------------------------------------------------
   const char_type* FunStrNumber::GetDesc() const
   {
-    return _T("number(s) - Converts the string stored in s into a floating foint value.");
+    return _T("number(s) - converts the value to number.");
   }
 
   //------------------------------------------------------------------------------
   IToken* FunStrNumber::Clone() const
   {
     return new FunStrNumber(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //
+  // String cast => string()
+  //
+  //------------------------------------------------------------------------------
+
+  // auxiliary string() functions
+  string_type to_string(long_double_type number) {
+    std::string string_number = std::to_string (number);
+    int offset = 1;
+    if (string_number.find_last_not_of('0') == string_number.find('.')) {
+      offset = 0;
+    }
+    string_number.erase(string_number.find_last_not_of('0') + offset, std::string::npos);
+    return string_number;
+  }
+
+  // string() defines
+  FunString::FunString()
+    :ICallback(cmFUNC, _T("string"), 1)
+  {}
+
+  //------------------------------------------------------------------------------
+  void FunString::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc)
+  {
+    assert(a_iArgc==1);
+    _unused(a_iArgc);
+
+    int_type    integer_value;
+    float_type  float_value;
+    bool_type   bool_value;
+    string_type string_value;
+
+    if (a_pArg[0]->GetType() == 'i') {
+      integer_value = a_pArg[0]->GetInteger();
+      *ret = (string_type) to_string(integer_value);
+    }
+
+    if (a_pArg[0]->GetType() == 'f') {
+      float_value = a_pArg[0]->GetFloat();
+      *ret = (string_type) to_string(float_value);
+    }
+
+    if (a_pArg[0]->GetType() == 'b') {
+      bool_value = a_pArg[0]->GetBool();
+      *ret = (string_type) (bool_value ? "true" : "false");
+    }
+
+    if (a_pArg[0]->GetType() == 's') {
+      string_value = a_pArg[0]->GetString();
+      *ret = (string_type) string_value;
+    }
+
+    return;
+  }
+
+  //------------------------------------------------------------------------------
+  const char_type* FunString::GetDesc() const
+  {
+    return _T("string(x) - converts the value to string.");
+  }
+
+  //------------------------------------------------------------------------------
+  IToken* FunString::Clone() const
+  {
+    return new FunString(*this);
   }
 MUP_NAMESPACE_END
