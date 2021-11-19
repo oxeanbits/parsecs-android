@@ -85,7 +85,7 @@ class ParsecValueTest {
                         "formula: $calc, expected: [$expected], returns: [${result.getValue()}]")
             }
         } catch (ex: UnsupportedOperationException) {
-            Log.e(ParsecValueTest::class.java.simpleName, ex.message)
+            Log.e(ParsecValueTest::class.java.simpleName, ex.message.toString())
         }
     }
 
