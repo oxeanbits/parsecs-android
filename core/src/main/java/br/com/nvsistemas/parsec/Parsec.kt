@@ -35,21 +35,20 @@ class Parsec {
         return Value("", "")
     }
 
-    fun evalValues(equations: Map<Int, String>): Map<Int, Value> {
-        val values = mutableMapOf<Int, Value>()
+    fun evalValues(equations: List<String>): List<Value?> {
+        val values = mutableListOf<Value?>()
+        val result = nativeEvalJsonArray(equations.toTypedArray())
 
-        equations.forEach {
-            val result = nativeEvalJson(it.value)
-
-            if(result.startsWith("{\"error\"")) {
-                val error = result.substring(11, result.length - 1)
-                throw UnsupportedOperationException(error)
+        result.forEach {
+            if(it.startsWith("{\"error\"")) {
+                values.add(null)
+                return@forEach
             }
 
             try {
-                val json = JSONObject(result)
-                values[it.key] = Value(json.optString("val", ""),
-                    json.optString("type", ""))
+                val json = JSONObject(it)
+                values.add(Value(json.optString("val", ""),
+                    json.optString("type", "")))
             } catch (ex: JSONException) {
                 Log.e(Parsec::class.java.simpleName, "Error on try parser json.", ex)
             }
@@ -61,6 +60,8 @@ class Parsec {
     private external fun nativeEval(formula: String): String
 
     private external fun nativeEvalJson(formula: String): String
+
+    private external fun nativeEvalJsonArray(formula: Array<String>): Array<String>
 
     companion object {
         init {

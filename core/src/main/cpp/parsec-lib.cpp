@@ -97,6 +97,19 @@ jstring CalcJson(JNIEnv *env, string input) {
     return env->NewStringUTF(ss.str().c_str());
 }
 
+jobjectArray CalcJsonArray(JNIEnv *env, jobjectArray input) {
+    int len = env->GetArrayLength(input);
+    jobjectArray result = env->NewObjectArray(len, env->FindClass("java/lang/String"), nullptr);
+
+    for(int i = 0; i < len; i++) {
+        auto inputString = (jstring) env->GetObjectArrayElement(input, i);
+        jstring resultString = CalcJson(env, env->GetStringUTFChars(inputString, nullptr));
+        env->SetObjectArrayElement(result, i, resultString);
+    }
+
+    return result;
+}
+
 extern "C" JNIEXPORT jstring JNICALL
 Java_br_com_nvsistemas_parsec_Parsec_nativeEval(JNIEnv *env, jobject /* this */, jstring input) {
     const char *inputChars = env->GetStringUTFChars(input, NULL);
@@ -109,6 +122,11 @@ extern "C" JNIEXPORT jstring JNICALL
 Java_br_com_nvsistemas_parsec_Parsec_nativeEvalJson(JNIEnv *env, jobject /* this */, jstring input) {
     const char *inputChars = env->GetStringUTFChars(input, NULL);
     return CalcJson(env, string(inputChars));
+}
+
+extern "C" JNIEXPORT jobjectArray JNICALL
+Java_br_com_nvsistemas_parsec_Parsec_nativeEvalJsonArray(JNIEnv *env, jobject /* this */, jobjectArray input) {
+    return CalcJsonArray(env, input);
 }
 
 
