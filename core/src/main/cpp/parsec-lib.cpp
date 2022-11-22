@@ -72,7 +72,7 @@ jstring CalcJson(JNIEnv *env, string input) {
         parser.SetExpr(input);
         ans = parser.Eval();
 
-        std::string ansString = ans.AsString();
+        std::string ansString = ans.ToString();
 
         replaceAll(ansString, "\"", "\\\"");
 
@@ -115,7 +115,7 @@ Java_br_com_nvsistemas_parsec_Parsec_nativeEval(JNIEnv *env, jobject /* this */,
     const char *inputChars = env->GetStringUTFChars(input, NULL);
 
     Value ans = Calc(string(inputChars));
-    return env->NewStringUTF(ans.AsString().c_str());
+    return env->NewStringUTF(ans.ToString().c_str());
 }
 
 extern "C" JNIEXPORT jstring JNICALL
