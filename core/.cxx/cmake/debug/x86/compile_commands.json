@@ -1,0 +1,229 @@
+[
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Dparsec_lib_EXPORTS -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/parsec-lib.dir/src/main/cpp/parsec-lib.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parsec-lib.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parsec-lib.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpError.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpError.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpError.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpFuncCmplx.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncCmplx.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncCmplx.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpFuncCommon.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncCommon.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncCommon.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpFuncMatrix.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncMatrix.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncMatrix.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpFuncNonCmplx.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncNonCmplx.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncNonCmplx.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpFuncStr.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncStr.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpFuncStr.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpICallback.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpICallback.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpICallback.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpIOprt.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIOprt.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIOprt.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpIPackage.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIPackage.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIPackage.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpIToken.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIToken.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIToken.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpIValReader.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIValReader.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIValReader.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpIValue.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIValue.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIValue.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpIfThenElse.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIfThenElse.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpIfThenElse.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpOprtBinAssign.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtBinAssign.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtBinAssign.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpOprtBinCommon.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtBinCommon.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtBinCommon.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpOprtCmplx.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtCmplx.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtCmplx.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpOprtIndex.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtIndex.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtIndex.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpOprtMatrix.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtMatrix.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtMatrix.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpOprtNonCmplx.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtNonCmplx.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtNonCmplx.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpOprtPostfixCommon.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtPostfixCommon.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpOprtPostfixCommon.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpPackageCmplx.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageCmplx.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageCmplx.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpPackageCommon.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageCommon.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageCommon.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpPackageMatrix.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageMatrix.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageMatrix.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpPackageNonCmplx.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageNonCmplx.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageNonCmplx.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpPackageStr.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageStr.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageStr.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpPackageUnit.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageUnit.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpPackageUnit.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpParser.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpParser.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpParser.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpParserBase.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpParserBase.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpParserBase.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpParserMessageProvider.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpParserMessageProvider.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpParserMessageProvider.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpRPN.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpRPN.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpRPN.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpScriptTokens.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpScriptTokens.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpScriptTokens.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpTest.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpTest.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpTest.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpTokenReader.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpTokenReader.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpTokenReader.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpValReader.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpValReader.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpValReader.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpValue.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpValue.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpValue.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpValueCache.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpValueCache.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpValueCache.cpp"
+},
+
+{
+  "directory": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+  "command": "/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android21 --gcc-toolchain=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/krysthian/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -I../../../../src/main/cpp/parser  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -frtti -fexceptions -pedantic -Wall -Wextra -std=c++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/muparserx.dir/src/main/cpp/parser/mpVariable.cpp.o -c /home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpVariable.cpp",
+  "file": "/home/krysthian/Workspace/parsecs-android/core/src/main/cpp/parser/mpVariable.cpp"
+}
+]

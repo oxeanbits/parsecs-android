@@ -1,0 +1,2 @@
+/home/krysthian/Workspace/parsecs-android/core/CMakeLists.txt
+/home/krysthian/Workspace/parsecs-android/core/cmake/muparserxConfigVersion.in.cmake

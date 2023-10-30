@@ -1,0 +1,70 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-44bf0ffd7d7872f428ed.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "muparserx",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "muparserx::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-muparserx-Debug-bc8d2321fefe158379fb.json",
+					"name" : "muparserx",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "parsec-lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-parsec-lib-Debug-6d883fab4eba613664b4.json",
+					"name" : "parsec-lib",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/krysthian/Workspace/parsecs-android/core/.cxx/Debug/552c6wq4/x86",
+		"source" : "/home/krysthian/Workspace/parsecs-android/core"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

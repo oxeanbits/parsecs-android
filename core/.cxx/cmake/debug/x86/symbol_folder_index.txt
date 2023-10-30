@@ -1,0 +1,1 @@
+/home/krysthian/Workspace/parsecs-android/core/build/intermediates/cmake/debug/obj/x86

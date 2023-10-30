@@ -1,0 +1,1 @@
+/home/krysthian/Workspace/parsecs-android/core/CMakeLists.txt

@@ -1,0 +1,141 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 72,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 86,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 102,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 111,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libmuparserx.a"
+			],
+			"targetId" : "muparserx::@6890427a1f51a3e7e1df",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				".cxx/Debug/552c6wq4/x86/muparserx.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/muparserx",
+			"paths" : 
+			[
+				"cmake/muparserxConfig.cmake",
+				".cxx/Debug/552c6wq4/x86/muparserxConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "include/muparserx",
+			"paths" : 
+			[
+				"src/main/cpp/parser/mpCompat.h",
+				"src/main/cpp/parser/mpDefines.h",
+				"src/main/cpp/parser/mpError.h",
+				"src/main/cpp/parser/mpFuncCmplx.h",
+				"src/main/cpp/parser/mpFuncCommon.h",
+				"src/main/cpp/parser/mpFuncMatrix.h",
+				"src/main/cpp/parser/mpFuncNonCmplx.h",
+				"src/main/cpp/parser/mpFuncStr.h",
+				"src/main/cpp/parser/mpFwdDecl.h",
+				"src/main/cpp/parser/mpICallback.h",
+				"src/main/cpp/parser/mpIOprt.h",
+				"src/main/cpp/parser/mpIPackage.h",
+				"src/main/cpp/parser/mpIPrecedence.h",
+				"src/main/cpp/parser/mpIToken.h",
+				"src/main/cpp/parser/mpIValReader.h",
+				"src/main/cpp/parser/mpIValue.h",
+				"src/main/cpp/parser/mpIfThenElse.h",
+				"src/main/cpp/parser/mpMatrix.h",
+				"src/main/cpp/parser/mpMatrixError.h",
+				"src/main/cpp/parser/mpOprtBinAssign.h",
+				"src/main/cpp/parser/mpOprtBinCommon.h",
+				"src/main/cpp/parser/mpOprtCmplx.h",
+				"src/main/cpp/parser/mpOprtIndex.h",
+				"src/main/cpp/parser/mpOprtMatrix.h",
+				"src/main/cpp/parser/mpOprtNonCmplx.h",
+				"src/main/cpp/parser/mpOprtPostfixCommon.h",
+				"src/main/cpp/parser/mpPackageCmplx.h",
+				"src/main/cpp/parser/mpPackageCommon.h",
+				"src/main/cpp/parser/mpPackageMatrix.h",
+				"src/main/cpp/parser/mpPackageNonCmplx.h",
+				"src/main/cpp/parser/mpPackageStr.h",
+				"src/main/cpp/parser/mpPackageUnit.h",
+				"src/main/cpp/parser/mpParser.h",
+				"src/main/cpp/parser/mpParserBase.h",
+				"src/main/cpp/parser/mpParserMessageProvider.h",
+				"src/main/cpp/parser/mpRPN.h",
+				"src/main/cpp/parser/mpScriptTokens.h",
+				"src/main/cpp/parser/mpStack.h",
+				"src/main/cpp/parser/mpTest.h",
+				"src/main/cpp/parser/mpTokenReader.h",
+				"src/main/cpp/parser/mpTypes.h",
+				"src/main/cpp/parser/mpValReader.h",
+				"src/main/cpp/parser/mpValue.h",
+				"src/main/cpp/parser/mpValueCache.h",
+				"src/main/cpp/parser/mpVariable.h",
+				"src/main/cpp/parser/suSortPred.h",
+				"src/main/cpp/parser/suStringTokens.h",
+				"src/main/cpp/parser/utGeneric.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}

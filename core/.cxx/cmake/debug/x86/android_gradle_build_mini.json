@@ -1,0 +1,45 @@
+{
+  "buildFiles": [
+    "/home/krysthian/Workspace/parsecs-android/core/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/krysthian/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+      "-C",
+      "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/krysthian/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+    "-C",
+    "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "parsec-lib-Debug-x86": {
+      "artifactName": "parsec-lib",
+      "buildCommandComponents": [
+        "/home/krysthian/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+        "-C",
+        "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+        "parsec-lib"
+      ],
+      "abi": "x86",
+      "output": "/home/krysthian/Workspace/parsecs-android/core/build/intermediates/cmake/debug/obj/x86/libparsec-lib.so",
+      "runtimeFiles": []
+    },
+    "muparserx-Debug-x86": {
+      "artifactName": "muparserx",
+      "buildCommandComponents": [
+        "/home/krysthian/Android/Sdk/cmake/3.10.2.4988404/bin/ninja",
+        "-C",
+        "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86",
+        "muparserx"
+      ],
+      "abi": "x86",
+      "output": "/home/krysthian/Workspace/parsecs-android/core/.cxx/cmake/debug/x86/libmuparserx.a",
+      "runtimeFiles": []
+    }
+  }
+}
