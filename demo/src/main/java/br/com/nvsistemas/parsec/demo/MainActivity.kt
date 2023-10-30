@@ -3,27 +3,25 @@ package br.com.nvsistemas.parsec.demo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.nvsistemas.parsec.Parsec
-import kotlinx.android.synthetic.main.activity_main.expression
-import kotlinx.android.synthetic.main.activity_main.expression2
-import kotlinx.android.synthetic.main.activity_main.result
-import kotlinx.android.synthetic.main.activity_main.result2
-import kotlinx.android.synthetic.main.activity_main.show_result_btn
-import kotlinx.android.synthetic.main.activity_main.show_result_btn2
+import br.com.nvsistemas.parsec.demo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private val parsec = Parsec()
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        show_result_btn.setOnClickListener {
-            result.text = eval(expression.text.toString())
+
+        binding.showResultBtn.setOnClickListener {
+            binding.result.text = eval(binding.expression.text.toString())
         }
 
-        show_result_btn2.setOnClickListener {
-            result2.text = eval(expression2.text.split(",").map { it.trim() })
+        binding.showResultBtn2.setOnClickListener {
+            binding.result2.text = eval(binding.expression2.text.split(",").map { it.trim() })
         }
     }
 
