@@ -55,3 +55,4 @@ captures/
 /build
 /captures
 .externalNativeBuild
+core/.cxx/
