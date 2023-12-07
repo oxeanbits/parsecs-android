@@ -34,6 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "mpError.h"
 #include "mpValueCache.h"
 #include <iomanip>
+#include <limits>
+
 
 MUP_NAMESPACE_START
 
