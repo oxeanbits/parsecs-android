@@ -1,31 +1,31 @@
 /*
                __________                                 ____  ___
     _____  __ _\______   \_____ _______  ______ __________\   \/  /
-   /     \|  |  \     ___/\__  \\_  __ \/  ___// __ \_  __ \     / 
-  |  Y Y  \  |  /    |     / __ \|  | \/\___ \\  ___/|  | \/     \ 
+   /     \|  |  \     ___/\__  \\_  __ \/  ___// __ \_  __ \     /
+  |  Y Y  \  |  /    |     / __ \|  | \/\___ \\  ___/|  | \/     \
   |__|_|  /____/|____|    (____  /__|  /____  >\___  >__| /___/\  \
         \/                     \/           \/     \/           \_/
                                        Copyright (C) 2016, Ingo Berg
                                        All rights reserved.
 
-  Redistribution and use in source and binary forms, with or without 
+  Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions are met:
 
-   * Redistributions of source code must retain the above copyright notice, 
+   * Redistributions of source code must retain the above copyright notice,
      this list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
 
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 */
 #include "mpFuncStr.h"
@@ -38,41 +38,10 @@
 
 #include "mpValue.h"
 #include "mpError.h"
+#include "equationsParser.h"
 
 
 MUP_NAMESPACE_START
-
-  //------------------------------------------------------------------------------
-  //
-  // Contains function
-  //
-  //------------------------------------------------------------------------------
-
-  FunStrContains::FunStrContains()
-    :ICallback(cmFUNC, _T("contains"), 2)
-  {}
-
-  //------------------------------------------------------------------------------
-  void FunStrContains::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int)
-  {
-    const string_type & str1 = a_pArg[0]->GetString();
-    const string_type & str2 = a_pArg[1]->GetString();
-
-    *ret = str1.find(str2) != string_type::npos ? true : false;
-  }
-
-  //------------------------------------------------------------------------------
-  const char_type* FunStrContains::GetDesc() const
-  {
-    return _T("contains(str1, str2) - Returns if the str2 string is a sub string of str1.");
-  }
-
-  //------------------------------------------------------------------------------
-  IToken* FunStrContains::Clone() const
-  {
-    return new FunStrContains(*this);
-  }
-
   //------------------------------------------------------------------------------
   //
   // Concat function
@@ -120,6 +89,7 @@ MUP_NAMESPACE_START
       throw ParserError(ErrorContext(ecTOO_FEW_PARAMS, GetExprPos(), GetIdent()));
     if (a_iArgc > 3)
       throw ParserError(ErrorContext(ecTOO_MANY_PARAMS, GetExprPos(), GetIdent()));
+
     string_type str1 = a_pArg[0]->GetString();
     string_type str2 = a_pArg[1]->GetString();
     string_type opAttr = a_iArgc == 3 ? " download=\"" + a_pArg[2]->GetString() + "\">" : ">";
@@ -296,7 +266,7 @@ MUP_NAMESPACE_START
       if (a_pArg[0]->GetType() == 'i') { // NULL first parameter
         integer_value = a_pArg[0]->GetInteger();
         *ret = default_value(integer_value, string_standard);
-      } else if (a_pArg[0]->GetType() == 's'){ // NOT NULL first parameter
+      } else if (a_pArg[0]->GetType() == 's') { // NOT NULL first parameter
         string_value = a_pArg[0]->GetString();
         *ret = (string_type) default_value(string_value, string_standard);
       }
@@ -434,7 +404,7 @@ MUP_NAMESPACE_START
 
     in = a_pArg[0]->GetString();
 
-#ifndef _UNICODE    
+#ifndef _UNICODE
     sscanf(in.c_str(), "%lf", &out);
 #else
     swscanf(in.c_str(), _T("%lf"), &out);
@@ -482,9 +452,9 @@ MUP_NAMESPACE_START
       string_value = a_pArg[0]->GetString();
 
       #ifndef _UNICODE
-        sscanf(string_value.c_str(), "%lf", &out);
+          sscanf(string_value.c_str(), "%lf", &out);
       #else
-        swscanf(string_value.c_str(), _T("%lf"), &out);
+          swscanf(string_value.c_str(), _T("%lf"), &out);
       #endif
 
       *ret = (float_type) out;
@@ -586,5 +556,68 @@ MUP_NAMESPACE_START
   IToken* FunString::Clone() const
   {
     return new FunString(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //
+  // Contains function
+  //
+  //------------------------------------------------------------------------------
+
+  FunStrContains::FunStrContains()
+    :ICallback(cmFUNC, _T("contains"), 2)
+  {}
+
+  //------------------------------------------------------------------------------
+  void FunStrContains::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int)
+  {
+    const string_type & str1 = a_pArg[0]->GetString();
+    const string_type & str2 = a_pArg[1]->GetString();
+
+    *ret = str1.find(str2) != string_type::npos;
+  }
+
+  //------------------------------------------------------------------------------
+  const char_type* FunStrContains::GetDesc() const
+  {
+    return _T("contains(str1, str2) - Returns if the str2 string is a sub string of str1.");
+  }
+
+  //------------------------------------------------------------------------------
+  IToken* FunStrContains::Clone() const
+  {
+    return new FunStrContains(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //
+  // Calculate function
+  //
+  //------------------------------------------------------------------------------
+
+  FunStrCalculate::FunStrCalculate()
+    :ICallback(cmFUNC, _T("calculate"), 1)
+  {}
+
+  //------------------------------------------------------------------------------
+  void FunStrCalculate::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int)
+  {
+    using namespace std;
+
+    string_type equation = a_pArg[0]->GetString();
+
+    *ret = EquationsParser::Calc(equation);
+  }
+
+  //------------------------------------------------------------------------------
+  const char_type* FunStrCalculate::GetDesc() const
+  {
+    return _T("calculate(s) - Calculates an equation (Run equations-parser for the string input).");
+  }
+
+  //------------------------------------------------------------------------------
+  IToken* FunStrCalculate::Clone() const
+  {
+    return new FunStrCalculate(*this);
   }
 MUP_NAMESPACE_END

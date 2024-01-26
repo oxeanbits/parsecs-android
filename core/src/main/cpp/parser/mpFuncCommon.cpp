@@ -828,4 +828,133 @@ MUP_NAMESPACE_START
     return new FunTimeDiff(*this);
   }
 
+  //------------------------------------------------------------------------------
+  //                                                                             |
+  //            Functions for regex matching                                     |
+  //            Usage: regex("string", "regex")                                  |
+  //                                                                             |
+  //------------------------------------------------------------------------------
+
+  FunRegex::FunRegex()
+    :ICallback(cmFUNC, _T("regex"), -1)
+  {}
+
+  std::vector<std::vector<std::string>> capture_regex_groups(const std::string& input, const std::string& pattern) {
+    std::vector<std::vector<std::string>> captured_groups;
+    std::smatch match;
+    std::regex re(pattern);
+    std::string::const_iterator search_start(input.cbegin());
+
+    while (std::regex_search(search_start, input.cend(), match, re)) {
+        std::vector<std::string> groups;
+        for (size_t i = 1; i < match.size(); ++i) {
+            groups.push_back(match[i].str());
+        }
+        captured_groups.push_back(groups);
+        search_start = match.suffix().first;
+    }
+
+    return captured_groups;
+  }
+
+  void FunRegex::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc)
+  {
+    if (a_iArgc < 2) {
+      throw ParserError(ErrorContext(ecTOO_FEW_PARAMS, GetExprPos(), GetIdent()));
+    } else if (a_iArgc > 2) {
+      throw ParserError(ErrorContext(ecTOO_MANY_PARAMS, GetExprPos(), GetIdent()));
+    }
+
+     string_type input = a_pArg[0]->GetString();
+     string_type pattern = a_pArg[1]->GetString();
+
+     auto captured_groups = capture_regex_groups(input, pattern);
+
+     if (captured_groups.size() == 0 || captured_groups[0].size() == 0) {
+       *ret = (string_type) "";
+     } else {
+       *ret = (string_type) captured_groups[0][0];
+     }
+  }
+
+  ////------------------------------------------------------------------------------
+  const char_type* FunRegex::GetDesc() const
+  {
+    return _T("regex(a,b) - Returns the first match of a regex pattern.");
+  }
+
+  ////------------------------------------------------------------------------------
+  IToken* FunRegex::Clone() const
+  {
+    return new FunRegex(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //                                                                             |
+  //            Function return the week of year of a date                       |
+  //            Usage: weekyear("2022-04-20")                                    |
+  //                                                                             |
+  //------------------------------------------------------------------------------
+
+  FunWeekYear::FunWeekYear()
+    :ICallback(cmFUNC, _T("weekyear"), -1)
+  {}
+
+  void FunWeekYear::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc)
+  {
+    if (a_iArgc < 1) {
+      throw ParserError(ErrorContext(ecTOO_FEW_PARAMS, GetExprPos(), GetIdent()));
+    } else if (a_iArgc > 1) {
+      throw ParserError(ErrorContext(ecTOO_MANY_PARAMS, GetExprPos(), GetIdent()));
+    }
+
+    string_type date_time = a_pArg[0]->GetString();
+
+    struct tm date;
+    if (!strptime(date_time.c_str(), "%Y-%m-%d", &date)) {
+      raise_error(ecINVALID_DATE_FORMAT, 1, a_pArg);
+    }
+
+    int year = date.tm_year + 1900; // tm_year is the number of years since 1900
+
+    // Get ordinal day of the year
+    int day_of_year = date.tm_yday + 1; // tm_yday is the number of days since January 1st
+
+    // Get weekday number (0 is Sunday)
+    int weekday = date.tm_wday;
+
+    // Calculate week number
+    int week_number = (day_of_year - weekday + 10) / 7;
+
+    // Check if week belongs to previous year
+    if (week_number == 0) {
+        year--;
+        week_number = 52;
+        if (std::tm{0,0,0,1,0,year-1900}.tm_wday < 4) { // January 1st of the previous year is before Thursday
+            week_number = 53;
+        }
+    }
+
+    // Check if week belongs to following year
+    if (week_number == 53) {
+        if (std::tm{0,0,0,1,0,year+1-1900}.tm_wday >= 4) { // January 1st of the following year is on or after Thursday
+            week_number = 1;
+        }
+    }
+
+    *ret = week_number;
+  }
+
+  ////------------------------------------------------------------------------------
+  const char_type* FunWeekYear::GetDesc() const
+  {
+    return _T("weekyear(date) - Returns the week number of the year.");
+  }
+
+  ////------------------------------------------------------------------------------
+  IToken* FunWeekYear::Clone() const
+  {
+    return new FunWeekYear(*this);
+  }
+
 MUP_NAMESPACE_END
