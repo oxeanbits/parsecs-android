@@ -458,6 +458,34 @@ MUP_NAMESPACE_START
     throw ParserError(err);
   }
 
+  string_type localized_weekday(int week_day, const ptr_val_type *a_pArg) {
+    string_type locale = a_pArg[1]->GetString();
+    string_type ret = "";
+    string_type localized_weekdays[8][7] = {
+      {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"},
+      {"Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"},
+      {"Domingo", "Segunda-Feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"},
+      {"Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sabado"},
+      {"Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"},
+      {"Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"},
+      {"星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"},
+      {"วันอาทิตย์", "วันจันทร์", "วันอังคาร", "วันพุธ", "วันพฤหัสบดี", "วันศุกร์", "วันเสาร์"}
+    };
+    string_type locales[8] = {"en", "nb", "pt-BR", "es-ES", "fr-FR", "de-DE", "zh-CN", "th-TH"};
+
+    for (int i = 0; i < 8; i++) {
+      if(locale == locales[i]) {
+        ret = localized_weekdays[i][week_day];
+      }
+    }
+
+    if(ret == ""){
+      raise_error(ecUKNOWN_LOCALE, 2, a_pArg);
+    }
+
+    return ret;
+  }
+
   //------------------------------------------------------------------------------
   //
   // class FunDaysDiff
@@ -675,11 +703,6 @@ MUP_NAMESPACE_START
     return new FunAddDays(*this);
   }
 
-  //------------------------------------------------------------------------------
-  //
-  // class FunTimeDiff
-  //
-  //------------------------------------------------------------------------------
 
   //FunTimeDiff::FunTimeDiff()
   //  :ICallback(cmFUNC, _T("timediff"), -1)
@@ -780,6 +803,30 @@ MUP_NAMESPACE_START
   //                                                                             |
   //------------------------------------------------------------------------------
 
+  //------------------------------------------------------------------------------
+  //                                                                             |
+  //                         Time auxiliar functions!                            |
+  //                                                                             |
+  //------------------------------------------------------------------------------
+
+  int calculate_hour_offset(int original_hour, int gmt_offset) {
+    return ((original_hour + gmt_offset) % 24 + 24) % 24;
+  }
+
+  string_type format_time (struct tm time, int gmt_offset) {
+    char buffer[9];
+    int hours = calculate_hour_offset(time.tm_hour, gmt_offset);
+    snprintf(buffer, sizeof(buffer), "%02d:%02d:%02d", hours, time.tm_min, time.tm_sec);
+
+    return std::string(buffer);
+  }
+
+  //------------------------------------------------------------------------------
+  //
+  // class FunTimeDiff
+  //
+  //------------------------------------------------------------------------------
+
   FunTimeDiff::FunTimeDiff()
     :ICallback(cmFUNC, _T("timediff"), -1)
   {}
@@ -826,6 +873,240 @@ MUP_NAMESPACE_START
   IToken* FunTimeDiff::Clone() const
   {
     return new FunTimeDiff(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //                                                                             |
+  //            class FunCurrentTime                                             |
+  //            Usage: current_time()                                            |
+  //            Optional offset: current_time(-2)                                |
+  //                                                                             |
+  //------------------------------------------------------------------------------
+
+  FunCurrentTime::FunCurrentTime()
+    :ICallback(cmFUNC, _T("current_time"), -1)
+  {}
+
+  void FunCurrentTime::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc)
+  {
+    int gmt_offset = 0;
+    if (a_iArgc > 1) {
+      throw ParserError(ErrorContext(ecTOO_MANY_PARAMS, GetExprPos(), GetIdent()));
+    } else if (a_iArgc == 1) {
+      switch(a_pArg[0]->GetType())
+      {
+      case 'i': gmt_offset = a_pArg[0]->GetInteger();   break;
+      default:
+        {
+          ErrorContext err;
+          err.Errc = ecTYPE_CONFLICT_FUN;
+          err.Arg = 1;
+          err.Type1 = a_pArg[0]->GetType();
+          err.Type2 = 'i';
+          err.Ident = GetIdent();
+          throw ParserError(err);
+        }
+      }
+    }
+
+    std::time_t t = std::time(0);
+    std::tm now = *std::gmtime(&t);
+
+    *ret = format_time(now, gmt_offset);
+  }
+
+  ////---------------------------------------------------------------------------------------------------------
+  const char_type* FunCurrentTime::GetDesc() const
+  {
+    return _T("current_time(offset) - Returns the current time in the HH:MM:SS format, applying the offset.");
+  }
+
+  ////---------------------------------------------------------------------------------------------------------
+  IToken* FunCurrentTime::Clone() const
+  {
+    return new FunCurrentTime(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //                                                                             |
+  //            Functions for regex matching                                     |
+  //            Usage: regex("string", "regex")                                  |
+  //                                                                             |
+  //------------------------------------------------------------------------------
+
+  FunRegex::FunRegex()
+    :ICallback(cmFUNC, _T("regex"), -1)
+  {}
+
+  std::vector<std::vector<std::string>> capture_regex_groups(const std::string& input, const std::string& pattern) {
+    std::vector<std::vector<std::string>> captured_groups;
+    std::smatch match;
+    std::regex re(pattern);
+    std::string::const_iterator search_start(input.cbegin());
+
+    while (std::regex_search(search_start, input.cend(), match, re)) {
+        std::vector<std::string> groups;
+        for (size_t i = 1; i < match.size(); ++i) {
+            groups.push_back(match[i].str());
+        }
+        captured_groups.push_back(groups);
+        search_start = match.suffix().first;
+    }
+
+    return captured_groups;
+  }
+
+  void FunRegex::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc)
+  {
+    if (a_iArgc < 2) {
+      throw ParserError(ErrorContext(ecTOO_FEW_PARAMS, GetExprPos(), GetIdent()));
+    } else if (a_iArgc > 2) {
+      throw ParserError(ErrorContext(ecTOO_MANY_PARAMS, GetExprPos(), GetIdent()));
+    }
+
+     string_type input = a_pArg[0]->GetString();
+     string_type pattern = a_pArg[1]->GetString();
+
+     auto captured_groups = capture_regex_groups(input, pattern);
+
+     if (captured_groups.size() == 0 || captured_groups[0].size() == 0) {
+       *ret = (string_type) "";
+     } else {
+       *ret = (string_type) captured_groups[0][0];
+     }
+  }
+
+  ////------------------------------------------------------------------------------
+  const char_type* FunRegex::GetDesc() const
+  {
+    return _T("regex(a,b) - Returns the first match of a regex pattern.");
+  }
+
+  ////------------------------------------------------------------------------------
+  IToken* FunRegex::Clone() const
+  {
+    return new FunRegex(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //                                                                             |
+  //            Function return the week of year of a date                       |
+  //            Usage: weekyear("2022-04-20")                                    |
+  //                                                                             |
+  //------------------------------------------------------------------------------
+
+  FunWeekYear::FunWeekYear()
+    :ICallback(cmFUNC, _T("weekyear"), -1)
+  {}
+
+  void FunWeekYear::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc)
+  {
+    if (a_iArgc < 1) {
+      throw ParserError(ErrorContext(ecTOO_FEW_PARAMS, GetExprPos(), GetIdent()));
+    } else if (a_iArgc > 1) {
+      throw ParserError(ErrorContext(ecTOO_MANY_PARAMS, GetExprPos(), GetIdent()));
+    }
+
+    string_type date_time = a_pArg[0]->GetString();
+
+    struct tm date;
+    if (!strptime(date_time.c_str(), "%Y-%m-%d", &date)) {
+      raise_error(ecINVALID_DATE_FORMAT, 1, a_pArg);
+    }
+
+    int year = date.tm_year + 1900; // tm_year is the number of years since 1900
+
+    // Get ordinal day of the year
+    int day_of_year = date.tm_yday + 1; // tm_yday is the number of days since January 1st
+
+    // Get weekday number (0 is Sunday)
+    int weekday = date.tm_wday;
+
+    // Calculate week number
+    int week_number = (day_of_year - weekday + 10) / 7;
+
+    // Check if week belongs to previous year
+    if (week_number == 0) {
+        year--;
+        week_number = 52;
+        if (std::tm{0,0,0,1,0,year-1900}.tm_wday < 4) { // January 1st of the previous year is before Thursday
+            week_number = 53;
+        }
+    }
+
+    // Check if week belongs to following year
+    if (week_number == 53) {
+        if (std::tm{0,0,0,1,0,year+1-1900}.tm_wday >= 4) { // January 1st of the following year is on or after Thursday
+            week_number = 1;
+        }
+    }
+
+    *ret = week_number;
+  }
+
+  ////------------------------------------------------------------------------------
+  const char_type* FunWeekYear::GetDesc() const
+  {
+    return _T("weekyear(date) - Returns the week number of the year.");
+  }
+
+  ////------------------------------------------------------------------------------
+  IToken* FunWeekYear::Clone() const
+  {
+    return new FunWeekYear(*this);
+  }
+
+  //------------------------------------------------------------------------------
+  //                                                                             |
+  //            Function return the week day of a date                           |
+  //            Usage: weekday("2022-04-20")                                     |
+  //            Optional locale: weekday("2022-04-20", "en")                     |
+  //                                                                             |
+  //------------------------------------------------------------------------------
+
+  FunWeekDay::FunWeekDay()
+    :ICallback(cmFUNC, _T("weekday"), -1)
+  {}
+
+  void FunWeekDay::Eval(ptr_val_type &ret, const ptr_val_type *a_pArg, int a_iArgc)
+  {
+    if (a_iArgc < 1) {
+      throw ParserError(ErrorContext(ecTOO_FEW_PARAMS, GetExprPos(), GetIdent()));
+    } else if (a_iArgc > 2) {
+      throw ParserError(ErrorContext(ecTOO_MANY_PARAMS, GetExprPos(), GetIdent()));
+    }
+
+    string_type date_time = a_pArg[0]->GetString();
+
+    struct tm date;
+    if (!strptime(date_time.c_str(), "%Y-%m-%d", &date)) {
+      raise_error(ecINVALID_DATETIME_FORMAT, 1, a_pArg);
+    }
+
+    bool has_locale = false;
+    if (a_iArgc == 2) {
+      has_locale = true;
+    }
+
+    int week_day = date.tm_wday;
+
+    if(has_locale) {
+      *ret = localized_weekday(week_day, a_pArg);
+    } else {
+      *ret = week_day;
+    }
+  }
+
+  ////------------------------------------------------------------------------------
+  const char_type* FunWeekDay::GetDesc() const
+  {
+    return _T("weekday(date) - Returns the week day of the date.");
+  }
+
+  ////------------------------------------------------------------------------------
+  IToken* FunWeekDay::Clone() const
+  {
+    return new FunWeekDay(*this);
   }
 
 MUP_NAMESPACE_END

@@ -99,9 +99,15 @@ void PackageCommon::AddToParser(ParserXBase *pParser)
   pParser->DefineFun(new FunHoursDiff());
   pParser->DefineFun(new FunCurrentDate());
   pParser->DefineFun(new FunAddDays());
+  pParser->DefineFun(new FunWeekYear());
+  pParser->DefineFun(new FunWeekDay());
+
+  // String functions
+  pParser->DefineFun(new FunRegex());
 
   // Time functions
   pParser->DefineFun(new FunTimeDiff());
+  pParser->DefineFun(new FunCurrentTime());
 
   // misc
   pParser->DefineFun(new FunParserID);
